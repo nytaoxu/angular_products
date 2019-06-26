@@ -1,0 +1,13 @@
+button.goback {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: silver;
+}
+div.detail {
+  text-align: center;
+  margin: 50px auto;
+}
+div.detail p {
+  font-size: 27px;
+}

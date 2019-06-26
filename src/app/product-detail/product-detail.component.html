@@ -1,0 +1,22 @@
+<div class="detail">
+  <p>
+    id: {{ product.id }}
+  </p>
+  <p>
+    title: {{ product.title | custom }}
+  </p>
+  <p>
+    price: {{ product.price | currency: 'USD' }}
+  </p>
+  <p>
+    rating: {{ product.rating | star }}
+  </p>
+  <p>
+    description: {{ product.description }}
+  </p>
+  <p>
+    category: {{ product.category }}
+  </p>
+  <br>
+  <button (click)="goBack()" class="goback">Go Back</button>
+</div>

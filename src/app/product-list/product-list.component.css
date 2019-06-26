@@ -1,0 +1,17 @@
+table, table td, table th {
+  border: 1px solid black;
+}
+table {
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+.product_id:hover {
+  cursor: pointer;
+  color: blue;
+}
+.product_title:hover {
+  cursor: pointer;
+  color: blue;
+}

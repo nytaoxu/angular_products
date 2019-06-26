@@ -1,0 +1,23 @@
+<h1>Products Page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of product_list; let i = index;">
+      <td (click)="onSelect(x)" class="product_id">{{ x.id }}</td>
+      <td (click)="onSelect(x)" class="product_title">{{ x.title }}</td>
+      <td>{{ x.price | currency: 'USD' }}</td>
+      <td><span style="color:gray;">&#9733;</span>{{ x.rating }}</td>
+      <td>{{ x.description }}</td>
+      <td>{{ x.category }}</td>
+    </tr>
+  </tbody>
+</table>
