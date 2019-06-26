@@ -18,3 +18,17 @@ h1 {
   cursor: pointer;
   color: blue;
 }
+
+div.buttons button {
+  width: 100px;
+  height: 80px;
+  font-size: 1.5em;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+div.buttons {
+  display: flex;
+  justify-content: center;
+}

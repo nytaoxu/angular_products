@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Chart } from "chart.js";
+import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 
 @Component({
   selector: "app-chart",
@@ -7,6 +8,9 @@ import { Chart } from "chart.js";
   styleUrls: ["./chart.component.css"]
 })
 export class ChartComponent implements OnInit {
+  public myChart: Chart;
+  public typeOfChart: string;
+  public typeArray = ["pie", "bar", "line"];
   product_list = [
     {
       id: 1,
@@ -49,13 +53,20 @@ export class ChartComponent implements OnInit {
       category: "Pad"
     }
   ];
-  constructor() {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.typeOfChart = params.get("typeOfChart");
+      console.log(this.typeOfChart);
+      this.constructChart(this.typeOfChart);
+    });
+  }
+
+  constructChart(typeOfChart: string) {
     let ctx = document.getElementById("myChart");
-    // var ctx = document.getElementById("myChart");
     let parameters = {
-      type: "pie",
+      type: typeOfChart,
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [
@@ -100,6 +111,6 @@ export class ChartComponent implements OnInit {
       parameters.data.labels.push(product.title);
       parameters.data.datasets[0].data.push(product.price);
     });
-    let myChart = new Chart(ctx, parameters);
+    this.myChart = new Chart(ctx, parameters);
   }
 }

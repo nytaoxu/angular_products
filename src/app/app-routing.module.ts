@@ -16,11 +16,11 @@ const routes: Routes = [
     component: ProductListComponent
   },
   {
-    path: "products/:id/:product",
+    path: "product/:id/:product",
     component: ProductDetailComponent
   },
   {
-    path: "products/chart",
+    path: "products/chart/:typeOfChart",
     component: ChartComponent
   },
   {

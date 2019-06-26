@@ -57,10 +57,25 @@ export class ProductListComponent implements OnInit {
   constructor(private router: Router) {}
   onSelect(product) {
     // console.log(product)
-    this.router.navigate(["/products", product.id, JSON.stringify(product)]);
+    this.router.navigate(["/product", product.id, JSON.stringify(product)]);
     //this.router.navigate([department.id], { relativeTo: this.route });
   }
   isSelected(product) {
     return product.id === this.selectedId;
   }
+  chart(typeOfChart: string) {
+    if (typeOfChart === "next") {
+      typeOfChart = this.nextType();
+    }
+    this.router.navigate(["/products", "chart", typeOfChart]);
+  }
+  nextType() {
+    ProductListComponent.current++;
+    if (ProductListComponent.current > 2) {
+      ProductListComponent.current -= 3;
+    }
+    return this.typeArray[ProductListComponent.current];
+  }
+  public static current = 0;
+  public typeArray = ["pie", "bar", "line"];
 }
