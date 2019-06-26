@@ -7,6 +7,7 @@ import { CustomPipe } from './custom.pipe';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { StarPipe } from './star.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { StarPipe } from './star.pipe';
     CustomPipe,
     ProductDetailComponent,
     ProductListComponent,
-    StarPipe
+    StarPipe,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
