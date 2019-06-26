@@ -8,6 +8,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductListComponent } from './product-list/product-list.component';
 import { StarPipe } from './star.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductDetailComponent,
     ProductListComponent,
     StarPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

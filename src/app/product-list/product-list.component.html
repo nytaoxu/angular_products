@@ -11,13 +11,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let x of product_list; let i = index;">
+    <tr *ngFor="let x of product_list; let i = index">
       <td (click)="onSelect(x)" class="product_id">{{ x.id }}</td>
       <td (click)="onSelect(x)" class="product_title">{{ x.title }}</td>
-      <td>{{ x.price | currency: 'USD' }}</td>
+      <td>{{ x.price | currency: "USD" }}</td>
       <td><span style="color:gray;">&#9733;</span>{{ x.rating }}</td>
       <td>{{ x.description }}</td>
       <td>{{ x.category }}</td>
     </tr>
   </tbody>
 </table>
+
+<!-- <app-chart></app-chart> -->

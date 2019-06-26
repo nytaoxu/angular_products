@@ -3,6 +3,7 @@ button.goback {
   height: 30px;
   border-radius: 10px;
   background-color: silver;
+  cursor: pointer;
 }
 div.detail {
   text-align: center;
