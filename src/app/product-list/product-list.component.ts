@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { ProductService } from "../product.service";
+import { Product } from "../product";
 
 @Component({
   selector: "app-product-list",
@@ -38,6 +39,15 @@ export class ProductListComponent implements OnInit {
       ProductListComponent.current -= 3;
     }
     return this.typeArray[ProductListComponent.current];
+  }
+  edit(product: Product) {
+    console.log(product);
+    this.router.navigate(["/product/edit/", product.id]);
+  }
+  delete(product: Product) {
+    // console.log(product);
+    if (confirm("Are you sure that you want to delete this record?"))
+      this.productService.deleteProduct(product);
   }
   public static current = 0;
   public typeArray = ["pie", "bar", "line"];

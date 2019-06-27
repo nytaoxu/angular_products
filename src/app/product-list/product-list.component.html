@@ -8,6 +8,7 @@
       <th>Rating</th>
       <th>Description</th>
       <th>Category</th>
+      <th>Edit or Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,10 @@
       <td><span style="color:gray;">&#9733;</span>{{ x.rating }}</td>
       <td>{{ x.description }}</td>
       <td>{{ x.category }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="edit(x)">Edit</button>
+        <button class="btn btn-danger" (click)="delete(x)">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>

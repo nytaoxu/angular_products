@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ChartComponent } from "./chart/chart.component";
 import { FormsModule } from "@angular/forms";
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductNewComponent } from './product-new/product-new.component';
     StarPipe,
     PageNotFoundComponent,
     ChartComponent,
-    ProductNewComponent
+    ProductNewComponent,
+    ProductEditComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

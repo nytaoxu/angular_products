@@ -61,4 +61,27 @@ export class ProductService {
   getNextId() {
     return ProductService.currentId++;
   }
+  deleteProduct(product: Product) {
+    let index = this.product_list.indexOf(product);
+    if (index < 0) {
+      return false;
+    }
+    this.product_list.splice(index, 1);
+    console.log("deleted");
+  }
+  getProductById(id: number) {
+    for (let x of this.product_list) {
+      if (x.id === id) return x;
+    }
+    return null;
+  }
+  editProduct(product: Product) {
+    let p: Product = this.getProductById(product.id);
+    if (!p) return;
+    p.title = product.title;
+    p.price = product.price;
+    p.rating = product.rating;
+    p.description = product.description;
+    p.category = product.category;
+  }
 }

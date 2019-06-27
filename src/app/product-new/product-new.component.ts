@@ -13,7 +13,7 @@ export class ProductNewComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
   ngOnInit() {}
 
-  title = "Create New Entry";
+  title = "Add New Product Form";
   //topics = ['Angular', 'React', 'Vue'];
   productModel = new Product(this.productService.getNextId(), "", 0, 0, "", "");
   //topicHasError = true;
