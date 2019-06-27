@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Chart } from "chart.js";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
+import { ProductService } from "../product.service";
 
 @Component({
   selector: "app-chart",
@@ -11,49 +12,15 @@ export class ChartComponent implements OnInit {
   public myChart: Chart;
   public typeOfChart: string;
   public typeArray = ["pie", "bar", "line"];
-  product_list = [
-    {
-      id: 1,
-      title: "macbook",
-      price: 1299,
-      rating: 3,
-      description: "This is a laptop made by Apple Inc.",
-      category: "Computer/Laptop"
-    },
-    {
-      id: 2,
-      title: "alienbook",
-      price: 1799,
-      rating: 5,
-      description: "This is a laptop made by Dell Inc.",
-      category: "Computer/Laptop"
-    },
-    {
-      id: 3,
-      title: "iphone",
-      price: 1599,
-      rating: 4,
-      description: "This is a cell phone made by Apple Inc.",
-      category: "Cell phone"
-    },
-    {
-      id: 4,
-      title: "ipad",
-      price: 799,
-      rating: 5,
-      description: "This is pad made by Apple Inc.",
-      category: "Pad"
-    },
-    {
-      id: 5,
-      title: "kindle",
-      price: 199,
-      rating: 5,
-      description: "This is a laptop made by Amazon Inc.",
-      category: "Pad"
-    }
-  ];
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  public product_list;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService
+  ) {
+    this.product_list = this.productService.getProductList();
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {

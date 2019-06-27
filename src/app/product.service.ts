@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Product } from "./product";
 
 @Injectable({
   providedIn: "root"
@@ -51,5 +52,8 @@ export class ProductService {
 
   getProductList() {
     return this.product_list;
+  }
+  addProduct(productModel: Product) {
+    this.product_list.push(productModel);
   }
 }
