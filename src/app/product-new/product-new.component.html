@@ -1,16 +1,16 @@
 <div class="container-fluid">
-  <h2>Bootcamp Enrollment Form</h2>
+  <h2>New Product Form</h2>
 
   <form
     #userForm="ngForm"
     *ngIf="!submitted"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="onSubmit(userForm)"
     novalidate
   >
     <div class="form-group">
       <label>ID</label>
       <input
-        type="text"
+        type="number"
         #id="ngModel"
         required
         class="form-control"
@@ -27,6 +27,8 @@
       <label>Title</label>
       <input
         type="text"
+        #title="ngModel"
+        required
         class="form-control"
         name="title"
         [(ngModel)]="productModel.title"
@@ -36,13 +38,52 @@
     <div class="form-group">
       <label>Price</label>
       <input
-        type="text"
+        type="number"
         #price="ngModel"
         required
         class="form-control"
-        [class.is-invalid]="price.invalid && price.touched"
         name="price"
+        [class.is-invalid]="price.invalid && price.touched"
         [(ngModel)]="productModel.price"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Rating</label>
+      <input
+        type="number"
+        #rating="ngModel"
+        required
+        class="form-control"
+        name="rating"
+        [class.is-invalid]="rating.invalid && rating.touched"
+        [(ngModel)]="productModel.rating"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <input
+        type="text"
+        #description="ngModel"
+        required
+        class="form-control"
+        name="description"
+        [class.is-invalid]="description.invalid && description.touched"
+        [(ngModel)]="productModel.description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <input
+        type="text"
+        #category="ngModel"
+        required
+        class="form-control"
+        name="category"
+        [class.is-invalid]="category.invalid && category.touched"
+        [(ngModel)]="productModel.category"
       />
     </div>
 

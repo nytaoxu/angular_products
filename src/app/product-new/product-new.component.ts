@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "../product";
 import { ProductService } from "../product.service";
+import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-product-new",
@@ -8,19 +10,12 @@ import { ProductService } from "../product.service";
   styleUrls: ["./product-new.component.css"]
 })
 export class ProductNewComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
   ngOnInit() {}
 
   title = "Create New Entry";
   //topics = ['Angular', 'React', 'Vue'];
-  productModel = new Product(
-    6,
-    "Bootcamp",
-    132.15,
-    5,
-    "This is a good product.",
-    "Utility"
-  );
+  productModel = new Product(this.productService.getNextId(), "", 0, 0, "", "");
   //topicHasError = true;
   submitted = false;
   errorMsg = "";
@@ -33,11 +28,16 @@ export class ProductNewComponent implements OnInit {
   //   }
   // }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.submitted = true;
-    console.log(this.productModel);
+    // console.log(this.productModel);
+    // console.log(
+    //   `This is the information I want: ${JSON.stringify(form.value)}.`
+    // );
+    // console.log(this.productService.getProductList().length);
     this.productService.addProduct(this.productModel);
-    console.log(this.productService.getProductList().length);
+    // console.log(this.productService.getProductList().length);
+    this.router.navigate(["/"]);
     // .subscribe(
     //   response => console.log("Success!", response),
     //   error => (this.errorMsg = error.statusText)

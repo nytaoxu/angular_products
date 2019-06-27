@@ -48,6 +48,8 @@ export class ProductService {
     }
   ];
 
+  private static currentId = 6;
+
   constructor() {}
 
   getProductList() {
@@ -55,5 +57,8 @@ export class ProductService {
   }
   addProduct(productModel: Product) {
     this.product_list.push(productModel);
+  }
+  getNextId() {
+    return ProductService.currentId++;
   }
 }
