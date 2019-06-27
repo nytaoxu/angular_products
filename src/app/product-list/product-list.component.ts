@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { ProductService } from "../product.service";
 
 @Component({
   selector: "app-product-list",
@@ -11,50 +13,11 @@ export class ProductListComponent implements OnInit {
 
   public productId;
   public selectedId;
+  public product_list;
 
-  product_list = [
-    {
-      id: 1,
-      title: "macbook",
-      price: 1299,
-      rating: 3,
-      description: "This is a laptop made by Apple Inc.",
-      category: "Computer/Laptop"
-    },
-    {
-      id: 2,
-      title: "alienbook",
-      price: 1799,
-      rating: 5,
-      description: "This is a laptop made by Dell Inc.",
-      category: "Computer/Laptop"
-    },
-    {
-      id: 3,
-      title: "iphone",
-      price: 1599,
-      rating: 4,
-      description: "This is a cell phone made by Apple Inc.",
-      category: "Cell phone"
-    },
-    {
-      id: 4,
-      title: "ipad",
-      price: 799,
-      rating: 5,
-      description: "This is pad made by Apple Inc.",
-      category: "Pad"
-    },
-    {
-      id: 5,
-      title: "kindle",
-      price: 199,
-      rating: 5,
-      description: "This is a laptop made by Amazon Inc.",
-      category: "Pad"
-    }
-  ];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private productService: ProductService) {
+    this.product_list = this.productService.getProductList();
+  }
   onSelect(product) {
     // console.log(product)
     this.router.navigate(["/product", product.id, JSON.stringify(product)]);
