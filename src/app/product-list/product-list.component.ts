@@ -21,7 +21,8 @@ export class ProductListComponent implements OnInit {
   }
   onSelect(product) {
     // console.log(product)
-    this.router.navigate(["/product", product.id, JSON.stringify(product)]);
+    // this.router.navigate(["/product", product.id, JSON.stringify(product)]);
+    this.router.navigate(["/product", product.id,]);
     //this.router.navigate([department.id], { relativeTo: this.route });
   }
   isSelected(product) {
