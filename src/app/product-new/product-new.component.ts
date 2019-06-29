@@ -15,7 +15,15 @@ export class ProductNewComponent implements OnInit {
 
   title = "Add New Product Form";
   //topics = ['Angular', 'React', 'Vue'];
-  productModel = new Product(this.productService.getNextId(), "", 0, 0, "", "");
+  // productModel = new Product(this.productService.getNextId(), "", 0, 0, "", "");
+  productModel: Product = {
+    id: this.productService.getNextId(),
+    title: "",
+    price: 0,
+    rating: 0,
+    description: "",
+    category: "",
+  };
   //topicHasError = true;
   submitted = false;
   errorMsg = "";
