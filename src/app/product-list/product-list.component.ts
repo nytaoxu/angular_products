@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
   onSelect(product) {
     // console.log(product)
     // this.router.navigate(["/product", product.id, JSON.stringify(product)]);
-    this.router.navigate(["/product", product.id,]);
+    this.router.navigate(["/products", product.id,]);
     //this.router.navigate([department.id], { relativeTo: this.route });
   }
   isSelected(product) {
@@ -43,7 +43,7 @@ export class ProductListComponent implements OnInit {
   }
   edit(product: Product) {
     console.log(product);
-    this.router.navigate(["/product/edit/", product.id]);
+    this.router.navigate(["/products/edit/", product.id]);
   }
   delete(product: Product) {
     // console.log(product);

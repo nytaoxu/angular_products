@@ -22,16 +22,16 @@ const routes: Routes = [
     component: ChartComponent
   },
   {
-    path: "product/edit/:id",
+    path: "products/new",
+    component: ProductNewComponent
+  },
+  {
+    path: "products/edit/:id",
     component: ProductEditComponent
   },
   {
-    path: "product/:id",
+    path: "products/:id",
     component: ProductDetailComponent
-  },
-  {
-    path: "product/new",
-    component: ProductNewComponent
   },
   {
     path: "**",
